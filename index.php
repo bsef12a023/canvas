@@ -43,7 +43,7 @@ if (isset($accessToken)) {
 		if ($e->getCode() == 190) {
 			unset($_SESSION['facebook_access_token']);
 			$helper = $fb->getRedirectLoginHelper();
-			$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/APP_NAMESPACE/', $permissions);
+			$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/ashar_ali', $permissions);
 			echo "<script>window.top.location.href='".$loginUrl."'</script>";
 			exit;
 		}
@@ -60,7 +60,7 @@ if (isset($accessToken)) {
 		// When Graph returns an error
 		echo 'Graph returned an error: ' . $e->getMessage();
 		unset($_SESSION['facebook_access_token']);
-		echo "<script>window.top.location.href='https://apps.facebook.com/ashar_ali/'</script>";
+		echo "<script>window.top.location.href='https://apps.facebook.com/ashar_ali'</script>";
 		exit;
 	} catch(Facebook\Exceptions\FacebookSDKException $e) {
 		// When validation fails or other local issues
@@ -68,13 +68,12 @@ if (isset($accessToken)) {
 		exit;
 	}
 	// priting basic info about user on the screen
-	print_r($profile);
-    echo"gives no fuck to you world";
+	echo "$profile";
+    echo "dont gives a fuck to anyone :D";
   	// Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
-}
-else{
+} else {
 	$helper = $fb->getRedirectLoginHelper();
-	$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/ashar_ali/', $permissions);
+	$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/ashar_ali', $permissions);
 	echo "<script>window.top.location.href='".$loginUrl."'</script>";
 }
 
